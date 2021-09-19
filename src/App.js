@@ -1,11 +1,25 @@
-import React,{ useState }from 'react'
+import React,{ useState, useEffect }from 'react'
 // import * as BooksAPI from './BooksAPI'
 import './App.css'
-import BookShilf from './Components/BookShilf'
+import BookShelf from './Components/BookShelf'
 import Search from './Components/Search'
+import * as BooksApi from './BooksAPI'
 
 function App () {
   const [show, setShow] = useState(false)
+  const [books, setBooks] = useState([])
+  let current  = books? books.filter(book => book.shelf === "currentlyReading"):[]
+  let want = books? books.filter(book => book.shelf === "wantToRead"):[]
+  let read = books? books.filter(book => book.shelf === "read"):[]
+
+  
+  useEffect(() => {
+    BooksApi.getAll().then ((data)=> {
+       setBooks(data)
+       console.log (data)
+    })
+
+  }, [])
 
 
  
@@ -20,9 +34,11 @@ function App () {
             </div>
             <div className="list-books-content">
               <div>
-                <BookShilf title="Currently Reading"></BookShilf>
-                <BookShilf title="Want to Read"></BookShilf>
-                <BookShilf title="Read"></BookShilf>
+                
+                
+                <BookShelf title="Currently Reading" books={current}  ></BookShelf>
+                <BookShelf title="Want to Read" books={want} ></BookShelf>
+                <BookShelf title="Read" books={read} ></BookShelf>
                 
               </div>
             </div>
