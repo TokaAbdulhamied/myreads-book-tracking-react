@@ -1,10 +1,18 @@
 import React from 'react'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function Search() {
   return (
     <div className="search-books">
       <div className="search-books-bar">
-        <button className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</button>
+        <Link to="/">
+        <button className="close-search" >Close</button>
+        </Link>
         <div className="search-books-input-wrapper">
           {/*
             NOTES: The search from BooksAPI is limited to a particular set of search terms.
@@ -19,7 +27,9 @@ function Search() {
         </div>
       </div>
       <div className="search-books-results">
-        <ol className="books-grid"></ol>
+        <ol className="books-grid">
+
+        </ol>
       </div>
     </div>
   )
