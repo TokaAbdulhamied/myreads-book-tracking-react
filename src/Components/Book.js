@@ -2,13 +2,19 @@ import React from 'react'
 import '../App.css'
 import BookShelf from './BookShelf'
 
-export default function Book({book:book}) {
+export default function Book({book:book, update:update}) {
+
+  const selectHandle =(e) =>{
+      update(e.target.value,book)
+      console.log(e.target.value, book)
+  }
+
   return (
     <div className="book">
       <div className="book-top">
         <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
         <div className="book-shelf-changer">
-          <select>
+          <select onChange={selectHandle} value={book.shelf}>
             <option value="move" disabled>Move to...</option>
             <option value="currentlyReading">Currently Reading</option>
             <option value="wantToRead">Want to Read</option>

@@ -8,21 +8,14 @@ import {
   Route,
   Link
 } from "react-router-dom";
-function Home() {
+function Home({books:books, update:update}) {
 
-  const [books, setBooks] = useState([])
+
   let current  = books? books.filter(book => book.shelf === "currentlyReading"):[]
   let want = books? books.filter(book => book.shelf === "wantToRead"):[]
   let read = books? books.filter(book => book.shelf === "read"):[]
+  console.log (current, "c", want, "w", read, "r")
 
-  
-  useEffect(() => {
-    BooksApi.getAll().then ((data)=> {
-       setBooks(data)
-       console.log (data)
-    })
-
-  }, [])
   return (
     <div className="list-books">
               <div className="list-books-title">
@@ -30,11 +23,9 @@ function Home() {
               </div>
               <div className="list-books-content">
                 <div>
-                  
-                  
-                  <BookShelf title="Currently Reading" books={current}  ></BookShelf>
-                  <BookShelf title="Want to Read" books={want} ></BookShelf>
-                  <BookShelf title="Read" books={read} ></BookShelf>
+                  <BookShelf title="Currently Reading"  books={current} update={update}  ></BookShelf>
+                  <BookShelf title="Want to Read"  books={want}  update={update} ></BookShelf>
+                  <BookShelf title="Read"  books={read}  update={update} ></BookShelf>
                   
                 </div>
               </div>
