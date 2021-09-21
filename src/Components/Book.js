@@ -6,7 +6,7 @@ export default function Book({book:book, update:update}) {
 
   const selectHandle =(e) =>{
       update(e.target.value,book)
-      console.log(e.target.value, book)
+      
   }
 
   return (

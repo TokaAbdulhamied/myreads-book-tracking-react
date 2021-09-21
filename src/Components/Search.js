@@ -30,8 +30,6 @@ function Search({books:books, update:update}) {
           return book
 
         }))
-
-          console.log (edited)
       }).catch ((e)=>{
           setNotfound (true)
       })

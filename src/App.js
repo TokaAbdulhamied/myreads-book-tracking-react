@@ -20,7 +20,6 @@ function App () {
   useEffect(() => {
     BooksApi.getAll().then ((data)=> {
        setBooks(data)
-       console.log (data)
     })
 
   }, [])

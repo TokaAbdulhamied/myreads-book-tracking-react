@@ -14,7 +14,6 @@ function Home({books:books, update:update}) {
   let current  = books? books.filter(book => book.shelf === "currentlyReading"):[]
   let want = books? books.filter(book => book.shelf === "wantToRead"):[]
   let read = books? books.filter(book => book.shelf === "read"):[]
-  console.log (current, "c", want, "w", read, "r")
 
   return (
     <div className="list-books">
