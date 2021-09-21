@@ -13,10 +13,11 @@ function Search({books, update}) {
 
   const handleChange =(e)=>{
       setsearch(e.target.value)
-  }
-  const handleKeyPress= (e) =>{
-    if (e.key === 'Enter' && search !== ""){
-
+      if (search == '' ) {
+        setEdited ([]) ;
+        setNotfound(true);
+      }
+      else {
       BooksApi.search (search).then ((results)=>{
         setNotfound (false)
          setEdited (results.map ((book)=>{
@@ -29,9 +30,8 @@ function Search({books, update}) {
         }))
       }).catch ((e)=>{
           setNotfound (true)
-      })
-      
-    }
+      })}
+
   }
 
   return (
@@ -43,8 +43,6 @@ function Search({books, update}) {
         <div className="search-books-input-wrapper">
 
           <input type="text" placeholder="Search by title or author"
-          
-          onKeyPress={handleKeyPress}
           value={search}
           onChange={handleChange}
           />
@@ -53,12 +51,12 @@ function Search({books, update}) {
       </div>
       <div className="search-books-results">
         {notfound ?
-        <h1>No Results Found </h1>:
+        "":
         
         <ol className="books-grid">
         { 
-               edited.map ((i, index)=>(
-              <li key={index}>
+               edited.map ((i)=>(
+              <li key={i.id}>
               <Book book={i} update={update}></Book>
               </li>
               ))

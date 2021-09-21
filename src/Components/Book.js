@@ -11,7 +11,8 @@ export default function Book({book, update}) {
   return (
     <div className="book">
       <div className="book-top">
-        <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})` }}></div>
+        <div className="book-cover" style={{ width: 128, height: 193, backgroundImage:
+          (book.imageLinks === undefined)? "":`url(${book.imageLinks.smallThumbnail})` }}></div>
         <div className="book-shelf-changer">
           <select onChange={selectHandle} value={book.shelf}>
             <option value="move" disabled>Move to...</option>
@@ -23,7 +24,7 @@ export default function Book({book, update}) {
         </div>
       </div>
       <div className="book-title">{book.title}</div>
-      <div className="book-authors">{book.authors}</div>
+      <div className="book-authors">{book.authors?book.authors:""}</div>
     </div>
   )
 }

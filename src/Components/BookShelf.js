@@ -13,8 +13,8 @@ function BookShelf({title, books, update}) {
         
             
             { 
-              books.map ((book, index)=>(
-              <li key={index}>
+              books.map ((book)=>(
+              <li key={book.id}>
               <Book book={book} update={update}></Book>
               </li>
               ))
