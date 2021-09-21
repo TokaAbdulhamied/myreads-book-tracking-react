@@ -13,7 +13,7 @@ function Search({books, update}) {
 
   const handleChange =(e)=>{
       setsearch(e.target.value)
-      if (search == '' ) {
+      if (search === '' ) {
         setEdited ([]) ;
         setNotfound(true);
       }
