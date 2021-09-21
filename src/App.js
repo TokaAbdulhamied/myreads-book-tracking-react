@@ -7,9 +7,7 @@ import Search from './Components/Search'
 
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
-  Link
 } from "react-router-dom";
 import Home from './Components/Home'
 

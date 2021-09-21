@@ -1,9 +1,9 @@
 import React from 'react'
 import Book from './Book'
 import '../App.css'
-import { useState } from 'react'
 
-function BookShelf({title:title, books:books, update:update}) {
+
+function BookShelf({title, books, update}) {
 
   return (
     <div className="bookshelf">

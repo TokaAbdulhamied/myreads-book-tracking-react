@@ -1,8 +1,7 @@
 import React from 'react'
 import '../App.css'
-import BookShelf from './BookShelf'
 
-export default function Book({book:book, update:update}) {
+export default function Book({book, update}) {
 
   const selectHandle =(e) =>{
       update(e.target.value,book)

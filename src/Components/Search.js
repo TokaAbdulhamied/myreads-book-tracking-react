@@ -1,14 +1,11 @@
 import React, {useState} from 'react'
 import Book from './Book'
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link
 } from "react-router-dom";
 import * as BooksApi from '../BooksAPI'
 
-function Search({books:books, update:update}) {
+function Search({books, update}) {
 
   const [search, setsearch] = useState("")
    const [edited, setEdited] = useState([])
@@ -25,8 +22,8 @@ function Search({books:books, update:update}) {
          setEdited (results.map ((book)=>{
 
           book = {...book, shelf:"none"}
-          books.filter ((saved)=>saved.id === book.id).
-          map (edit => book.shelf = edit.shelf)
+          books.filter ((saved)=>saved.id === book.id)
+          .map (edit => book.shelf = edit.shelf)
           return book
 
         }))

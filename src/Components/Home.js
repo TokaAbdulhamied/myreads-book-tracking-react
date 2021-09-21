@@ -1,14 +1,10 @@
 
 import BookShelf from './BookShelf'
-import React,{ useState, useEffect }from 'react'
-import * as BooksApi from '../BooksAPI'
+import React from 'react'
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
   Link
 } from "react-router-dom";
-function Home({books:books, update:update}) {
+function Home({books, update}) {
 
 
   let current  = books? books.filter(book => book.shelf === "currentlyReading"):[]
