@@ -1,7 +1,7 @@
 # MyReads Project
 
 This is the First project of React Nanodegree that profided by Udacity and FWD.
-It's reading tracking web App that has 2 main pages
+It's a book tracking web App that has 2 main pages
 
 - home page : show three categories (or “bookshelves”) for books (currently reading, want to read, and read). And each user is able to move books between shelve.
 - search page : let user search for any book and catigorize it.
