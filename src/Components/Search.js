@@ -7,18 +7,19 @@ import * as BooksApi from '../BooksAPI'
 
 function Search({books, update}) {
 
-  const [search, setsearch] = useState("")
+  const [search, setSearch] = useState("")
    const [edited, setEdited] = useState([])
    const [notfound, setNotfound] = useState(false)
 
   const handleChange =(e)=>{
-      setsearch(e.target.value)
-      if (search === '' ) {
+    setSearch(e.target.value)
+      
+      if (e.target.value === '' ) {
         setEdited ([]) ;
         setNotfound(true);
       }
       else {
-      BooksApi.search (search).then ((results)=>{
+      BooksApi.search (e.target.value).then ((results)=>{
         setNotfound (false)
          setEdited (results.map ((book)=>{
 
